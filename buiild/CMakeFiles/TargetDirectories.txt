@@ -1,0 +1,15 @@
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/ALL_BUILD.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/ZERO_CHECK.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/system_dir/CMakeFiles/System.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/meta_dir/CMakeFiles/Meta.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/math_dir/CMakeFiles/Math.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/core_dir/CMakeFiles/Core.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/test_testmodule_dir/CMakeFiles/TestModule.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/lua_dir/CMakeFiles/lua.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/luasocket_dir/CMakeFiles/socket.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/lua_cjson_dir/CMakeFiles/luacjson.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/lua_bit_dir/CMakeFiles/luabit.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/luafilesystem_dir/CMakeFiles/luafilesystem.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/json11_lib/CMakeFiles/json11.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/json11_lib/CMakeFiles/ALL_BUILD.dir
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/meta_parser_dir/CMakeFiles/Parser.dir

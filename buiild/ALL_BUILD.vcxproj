@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Editor_Debug|x64">
+      <Configuration>Editor_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Editor_Release|x64">
+      <Configuration>Editor_Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{78E69139-2748-3858-8020-A7EDB29F1EBE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor_Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Editor_Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Editor_Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Editor_Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Editor_Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Editor_Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\haojingyu\source\repos\ObjectSystem\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/haojingyu/source/repos/ObjectSystem/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SC:/Users/haojingyu/source/repos/ObjectSystem -BC:/Users/haojingyu/source/repos/ObjectSystem/buiild --check-stamp-file C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\haojingyu\source\repos\ObjectSystem\CPlatform.txt;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeCCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeCXXCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeRCCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeSystem.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\default_lists.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/haojingyu/source/repos/ObjectSystem/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SC:/Users/haojingyu/source/repos/ObjectSystem -BC:/Users/haojingyu/source/repos/ObjectSystem/buiild --check-stamp-file C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\haojingyu\source\repos\ObjectSystem\CPlatform.txt;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeCCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeCXXCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeRCCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeSystem.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\default_lists.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Editor_Debug|x64'">Building Custom Rule C:/Users/haojingyu/source/repos/ObjectSystem/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Editor_Debug|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SC:/Users/haojingyu/source/repos/ObjectSystem -BC:/Users/haojingyu/source/repos/ObjectSystem/buiild --check-stamp-file C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Editor_Debug|x64'">C:\Users\haojingyu\source\repos\ObjectSystem\CPlatform.txt;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeCCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeCXXCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeRCCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeSystem.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\default_lists.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Editor_Debug|x64'">C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Editor_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Editor_Release|x64'">Building Custom Rule C:/Users/haojingyu/source/repos/ObjectSystem/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Editor_Release|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SC:/Users/haojingyu/source/repos/ObjectSystem -BC:/Users/haojingyu/source/repos/ObjectSystem/buiild --check-stamp-file C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Editor_Release|x64'">C:\Users\haojingyu\source\repos\ObjectSystem\CPlatform.txt;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeCCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeCXXCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeRCCompiler.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\3.28.3\CMakeSystem.cmake;C:\Users\haojingyu\source\repos\ObjectSystem\default_lists.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Editor_Release|x64'">C:\Users\haojingyu\source\repos\ObjectSystem\buiild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Editor_Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\ZERO_CHECK.vcxproj">
+      <Project>{21D79D1E-5A7A-3565-BC78-3326F5F0424E}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\core_dir\Core.vcxproj">
+      <Project>{8A37FBE8-A268-370D-B945-46A9EC37F3F7}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\math_dir\Math.vcxproj">
+      <Project>{3CE31B8E-68E2-3433-BA20-EC79105DD051}</Project>
+      <Name>Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\meta_dir\Meta.vcxproj">
+      <Project>{AB27E24F-DA2C-3CE3-AFF8-9378AE4B492A}</Project>
+      <Name>Meta</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\meta_parser_dir\Parser.vcxproj">
+      <Project>{6D75215B-A846-30D0-A246-A86AE0D1FFA7}</Project>
+      <Name>Parser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\system_dir\System.vcxproj">
+      <Project>{63C94C9C-A6D3-340B-B102-7EFD2208CBC3}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\test_testmodule_dir\TestModule.vcxproj">
+      <Project>{4DB78CEC-E608-344F-97BD-5A83A6047262}</Project>
+      <Name>TestModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\json11_lib\json11.vcxproj">
+      <Project>{76DBC50A-D6FC-331C-920F-2ECE4C5AF3A9}</Project>
+      <Name>json11</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\lua_dir\lua.vcxproj">
+      <Project>{A24E6493-E421-324F-989B-27BE07FFE294}</Project>
+      <Name>lua</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\lua_bit_dir\luabit.vcxproj">
+      <Project>{42DB169E-A191-3B11-AE94-F935DB5DA624}</Project>
+      <Name>luabit</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\lua_cjson_dir\luacjson.vcxproj">
+      <Project>{F536B753-3075-35D7-B4E3-C03F42DA7D77}</Project>
+      <Name>luacjson</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\luafilesystem_dir\luafilesystem.vcxproj">
+      <Project>{818EB4BB-8FC3-3D72-8303-51CC927B8A39}</Project>
+      <Name>luafilesystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\haojingyu\source\repos\ObjectSystem\buiild\luasocket_dir\socket.vcxproj">
+      <Project>{72B218A0-7086-3364-B588-44790FA050BC}</Project>
+      <Name>socket</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

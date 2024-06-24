@@ -1,0 +1,27 @@
+# CMake generation dependency list for this directory.
+C:/Users/haojingyu/source/repos/ObjectSystem/CMakeLists.txt
+C:/Users/haojingyu/source/repos/ObjectSystem/CPlatform.txt
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/3.28.3/CMakeCCompiler.cmake
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/3.28.3/CMakeCXXCompiler.cmake
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/3.28.3/CMakeRCCompiler.cmake
+C:/Users/haojingyu/source/repos/ObjectSystem/buiild/CMakeFiles/3.28.3/CMakeSystem.cmake
+C:/Users/haojingyu/source/repos/ObjectSystem/default_lists.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCInformation.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeGenericSystem.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeRCInformation.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC-C.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC-CXX.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-MSVC-C.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-MSVC-CXX.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows-MSVC.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Platform/Windows.cmake
+D:/Program Files/CMake/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake

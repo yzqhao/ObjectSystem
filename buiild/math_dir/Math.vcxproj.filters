@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\AABB.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Mat3.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Mat4.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Math.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\MathUtil.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Plane.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Quaternion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Ray.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Rect.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Sphere.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Vec1.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Vec2.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Vec3.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Vec4.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\3DMath.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\AABB.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Mat3.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Mat4.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Math.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\MathUtil.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\MathUtil.inl">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Plane.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Quaternion.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Ray.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Rect.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Sphere.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Vec2.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Vec3.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\Vec4.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\haojingyu\source\repos\ObjectSystem\Math\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{FC103FBE-C3A4-31CD-986F-1523EB4A82BC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

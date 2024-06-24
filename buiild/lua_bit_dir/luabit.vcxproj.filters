@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Third\LuaBitOp-1.0.2\bit.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\haojingyu\source\repos\ObjectSystem\Third\LuaBitOp-1.0.2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{E32FAB24-3BEA-3703-8719-C6423C1228FE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

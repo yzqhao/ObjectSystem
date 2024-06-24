@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\haojingyu\source\repos\ObjectSystem\Third\luafilesystem\src\lfs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\haojingyu\source\repos\ObjectSystem\Third\luafilesystem\src\lfs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\haojingyu\source\repos\ObjectSystem\Third\luafilesystem\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5A6DC2ED-D2B5-3E9A-BF31-3C84C1C008D1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0B415B46-C43A-3722-BDD6-BC38D7828125}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
