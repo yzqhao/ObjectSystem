@@ -2,52 +2,33 @@
 # 并将名称保存到 DIR_LIB_SRCS 变量
 include(../CPlatform.txt)
 
-set(PROJECT_NAME Math)
+set(PROJECT_NAME Engine)
+
+set(ENGINE_ROOT_DIR ${ROOT_PATH}/Engine/)
 
 ################################################################################
 # Source groups
 ################################################################################
+
+set(__private
+    "private/Define.h"
+    "private/Define.cpp"
+)
+source_group("private" FILES ${__private})
+
 set(Source
-    "3DMath.h"
-    "AABB.cpp"
-    "AABB.h"
-    "Mat3.cpp"
-    "Mat3.h"
-    "Mat4.cpp"
-    "Mat4.h"
-    "Math.cpp"
-    "Math.h"
-    "MathUtil.cpp"
-    "MathUtil.h"
-	"MathUtil.inl"
-    "Plane.cpp"
-    "Plane.h"
-    "Quaternion.cpp"
-    "Quaternion.h"
-    "Ray.cpp"
-    "Ray.h"
-    "Rect.cpp"
-    "Rect.h"
-    "Sphere.cpp"
-    "Sphere.h"
-    "Vec1.h"
-    "Vec1.cpp"
-    "Vec2.h"
-    "Vec2.cpp"
-    "Vec2.h"
-    "Vec3.cpp"
-    "Vec3.h"
-    "Vec4.cpp"
-    "Vec4.h"
+    "reflection_register.h"
+    "reflection_register.cpp"
 )
 source_group("Source" FILES ${Source})
 
 set(ALL_FILES
+    ${__private}
     ${Source}
 )
 
 add_compile_definitions (
-    MATH_EXPORTS
+    ENGINE_EXPORTS
 )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${ROOT_PATH}/bin/)
@@ -61,6 +42,18 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_EDITOR_RELEASE ${ROOT_PATH}/bin/)
 add_library(${PROJECT_NAME} ${LIBRARY_TYPE_BY_PLATFORM} ${ALL_FILES})
 set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER "Engine")
 
+################################################################################
+# PreParser
+################################################################################
+### precompile
+# set global vari used by precompile
+
+set(CODEGEN_TARGET "PreCompile")
+include(precompile/precompile.cmake)
+set_target_properties("${CODEGEN_TARGET}" PROPERTIES FOLDER "Engine" )
+
+add_dependencies("${CODEGEN_TARGET}" "Parser")
+	
 ################################################################################
 # Target name
 ################################################################################
@@ -82,30 +75,25 @@ elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
 endif()
 
 ################################################################################
+# Include directories
+################################################################################
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${ROOT_PATH}/Third/rapidjson/include"
+	"${ROOT_PATH}"
+)
+
+################################################################################
 # Dependencies
 ################################################################################
 add_dependencies(${PROJECT_NAME}
-	System
-    Meta
+	Core
 	)
 target_link_libraries(${PROJECT_NAME} PUBLIC
-    System
-    Meta
+    Core
 )	
 
 ################################################################################
 # Compile and link options
 ################################################################################
 include(../VSCompileLink.txt)
-
-
-### precompile
-# set global vari used by precompile
-file(GLOB_RECURSE HEADER_FILES "*.h")
-set(MATH_HEADS "${HEADER_FILES}" PARENT_SCOPE)
-#MESSAGE("-----------------============================------------------: " ${HEADER_FILES})
-
-file(GLOB_RECURSE ENGINE_HEADER_FILES "${ROOT_PATH}/Engine/*.h")
-set(ENGINE_HEADS "${ENGINE_HEADER_FILES}" PARENT_SCOPE)
-#MESSAGE("-----------------============================------------------: " ${ENGINE_HEADER_FILES})
-
+	

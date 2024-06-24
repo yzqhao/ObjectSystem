@@ -14,14 +14,18 @@ CLASS_API(MATH_API, Vec1, Fields)
 {
     REFLECTION_BODY(Vec1);
 public:
-	union
-	{
-		struct
-		{
-			float x;
-		};
-		float m[1];
-	};
+#if defined(__REFLECTION_PARSER__)
+    float x;
+#else
+    union
+    {
+        struct
+        {
+            float x;
+        };
+        float m[1];
+    };
+#endif
 
     Vec1() : x(0.0) {}
     Vec1(float nx) : x(nx) {}

@@ -14,18 +14,22 @@ CLASS_API(MATH_API, Vec4, Fields)
 {
     REFLECTION_BODY(Vec4);
 public:
-	union
-	{
-		struct
-		{
-			float x, y, z, w;
-		};
+#if defined(__REFLECTION_PARSER__)
+	float x, y, z, w;
+#else
+    union
+    {
+        struct
+        {
+            float x, y, z, w;
+        };
         struct
         {
             float r, g, b, a;
         };
-		float m[4];
-	};
+        float m[4];
+    };
+#endif
 
     Vec4() : x(0.0f), y(0.0f), z(0.0f), w(0.0f) {}
     Vec4(float nx, float ny, float nz, float nw) : x(nx), y(ny), z(nz), w(nw) {}

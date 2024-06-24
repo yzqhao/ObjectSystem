@@ -17,6 +17,12 @@ CLASS_API(MATH_API, Mat4, Fields)
 {
     REFLECTION_BODY(Mat4);
 public:
+#if defined(__REFLECTION_PARSER__)
+    float a11, a12, a13, a14;
+    float a21, a22, a23, a24;
+    float a31, a32, a33, a34;
+    float a41, a42, a43, a44;
+#else
 	union
 	{
 		struct
@@ -28,6 +34,7 @@ public:
 		};
         float m[16];
 	};
+#endif
 
 	Mat4();
 	Mat4(float vf);

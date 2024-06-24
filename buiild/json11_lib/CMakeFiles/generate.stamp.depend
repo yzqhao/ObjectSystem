@@ -1,9 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Users/haojingyu/source/repos/ObjectSystem/Third/json11/CMakeLists.txt
-C:/Users/haojingyu/source/repos/ObjectSystem/Third/json11/json11.pc.in
-D:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
-D:/Program Files/CMake/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake
-D:/Program Files/CMake/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake
-D:/Program Files/CMake/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake
-D:/Program Files/CMake/share/cmake-3.28/Modules/Internal/CheckFlagCommonConfig.cmake
-D:/Program Files/CMake/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake

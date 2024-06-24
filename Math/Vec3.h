@@ -14,14 +14,18 @@ CLASS_API(MATH_API, Vec3, Fields)
 {
     REFLECTION_BODY(Vec3);
 public:
-	union
-	{
-		struct
-		{
-			float x, y, z;
-		};
-		float m[3];
-	};
+#if defined(__REFLECTION_PARSER__)
+    float x, y, z;
+#else
+    union
+    {
+        struct
+        {
+            float x, y, z;
+        };
+        float m[3];
+    };
+#endif
 
     Vec3() : x(0.0), y(0.0), z(0.0) {}
     Vec3(float nv) : x(nv), y(nv), z(nv) {}

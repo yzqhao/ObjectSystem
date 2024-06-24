@@ -22,14 +22,18 @@ CLASS_API(MATH_API, Plane, Fields)
 {
     REFLECTION_BODY(Plane);
 public:     // 平面公式：Ax + By + Cz + D = 0;
-	union
-	{
-		struct
-		{
-			float m_a, m_b, m_c;
-		};
+#if defined(__REFLECTION_PARSER__)
+	float m_a, m_b, m_c;
+#else
+    union
+    {
+        struct
+        {
+            float m_a, m_b, m_c;
+        };
         Vec3 m_normal;   // (A, B, C)
-	};
+};
+#endif
     float m_d;       // D
 public:
     Plane() : m_normal(0, 0, 0), m_d(0) {}

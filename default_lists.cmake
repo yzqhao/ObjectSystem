@@ -4,6 +4,7 @@ set (
     ./Meta/ meta_dir
     ./Math/ math_dir
     ./Core/ core_dir
+    ./Engine/ engine_dir
     #./LuaScriptSystem/ lua_script_system_dir
     #./Application/ application_dir
 	

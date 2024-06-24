@@ -14,14 +14,18 @@ CLASS_API(MATH_API, Vec2, Fields)
 {
     REFLECTION_BODY(Vec2);
 public:
-	union
-	{
-		struct
-		{
-			float x, y;
-		};
-		float m[2];
-	};
+#if defined(__REFLECTION_PARSER__)
+    float x, y;
+#else
+    union
+    {
+        struct
+        {
+            float x, y;
+        };
+        float m[2];
+};
+#endif
 
     Vec2() : x(0.0), y(0.0) {}
     Vec2(float nx, float ny) : x(nx), y(ny) {}

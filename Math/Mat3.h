@@ -16,6 +16,11 @@ CLASS_API(MATH_API, Mat3, Fields)
 {
     REFLECTION_BODY(Mat3);
 public:
+#if defined(__REFLECTION_PARSER__)
+    float a11, a12, a13;
+    float a21, a22, a23;
+    float a31, a32, a33;
+#else
 	union
 	{
 		struct
@@ -26,6 +31,7 @@ public:
 		};
     	float m[9];
 	};
+#endif
 
 	Mat3();
     Mat3(const Mat4& mat4);
