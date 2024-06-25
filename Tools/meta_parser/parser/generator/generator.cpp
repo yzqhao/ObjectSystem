@@ -5,7 +5,7 @@
 
 namespace Generator
 {
-    void GeneratorInterface::prepareStatus(std::string path)
+    void GeneratorInterface::prepareStatus(const std::string& path)
     {
         if (!fs::exists(path))
         {

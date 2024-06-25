@@ -4,7 +4,7 @@
 NS_JYE_BEGIN
 
 uint32_t Serializer::m_version = 1;
-std::vector<Object*> Serializer::m_objectArray;
+Serializer::SerInner Serializer::m_inner;
 
 template<>
 Json Serializer::write(const char& instance)
@@ -40,6 +40,30 @@ unsigned int& Serializer::read(const Json& json_context, unsigned int& instance)
 {
 	assert(json_context.is_number());
 	return instance = static_cast<unsigned int>(json_context.number_value());
+}
+
+template<>
+Json Serializer::write(const int64& instance)
+{
+    return Json(instance);
+}
+template<>
+int64& Serializer::read(const Json& json_context, int64& instance)
+{
+    assert(json_context.is_number());
+    return instance = static_cast<int64>(json_context.number_value());
+}
+
+template<>
+Json Serializer::write(const uint64& instance)
+{
+    return Json((int64)instance);
+}
+template<>
+uint64& Serializer::read(const Json& json_context, uint64& instance)
+{
+    assert(json_context.is_number());
+    return instance = static_cast<int64>(json_context.number_value());
 }
 
 template<>
@@ -90,5 +114,69 @@ std::string& Serializer::read(const Json& json_context, std::string& instance)
 	return instance = json_context.string_value();
 }
 
+// -----------------------------------------------------------------------------------
+Serializer::Serializer()
+{
+
+}
+
+Serializer::~Serializer()
+{
+
+}
+
+bool Serializer::SerInner::RegisterObject(Object* pObject)
+{
+	JY_ASSERT(pObject);
+
+    for (uint i = 0; i < (uint)m_objectArray.size(); i++)
+    {
+        if (m_objectArray[i] == pObject)
+        {
+            return false;
+        }
+    }
+    m_objectArray.push_back((Object*)pObject);
+
+    return true;
+}
+
+int Serializer::SerInner::GetObjectLinkID(Object* pObject)
+{
+    for (int i = 0; i < (int)m_objectArray.size(); i++)
+    {
+        if (m_objectArray[i] == pObject)
+        {
+            return i;
+        }
+    }
+	return -1;
+}
+
+bool Serializer::SerInner::IsFinishObject(Object* pObject)
+{
+	return m_serState.count(pObject) > 0;
+}
+
+void Serializer::SerInner::BeginSerializer(Object* pObject)
+{
+	m_serState.insert(pObject);
+}
+
+void Serializer::SerInner::SetObjectSerializer(Object* pObject, Json context)
+{
+	JY_ASSERT(m_serJsons.count(pObject) == 0);
+	m_serJsons[pObject] = context;
+}
+
+void Serializer::SerInner::SerializerAllObject(Json::object& outContext)
+{
+	JY_ASSERT(m_serJsons.size() == m_objectArray.size());
+	Json::array m_children_json;
+    for (auto& item : m_objectArray) {
+        m_children_json.emplace_back(m_serJsons[item]);
+    }
+	outContext.insert_or_assign("objects", m_children_json);
+}
 
 NS_JYE_END

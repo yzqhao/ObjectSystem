@@ -60,14 +60,25 @@ elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
 endif()
 
 ################################################################################
+# Include directories
+################################################################################
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${ROOT_PATH}/Third/rapidjson/include"
+	"${ROOT_PATH}"
+)
+
+
+################################################################################
 # Dependencies
 ################################################################################
 add_dependencies(${PROJECT_NAME}
-	System
+	Core
+    Engine
 	)
 target_link_libraries(${PROJECT_NAME} PUBLIC
-    System
-)
+    Core
+    Engine
+)	
 
 ################################################################################
 # Compile and link options

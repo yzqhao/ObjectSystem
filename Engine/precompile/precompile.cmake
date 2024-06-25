@@ -51,7 +51,7 @@ COMMAND
 COMMAND
   ${CMAKE_COMMAND} -E echo "************************************************************* "
 
-COMMAND ${PRECOMPILE_PARSER} "${PRECOMPILE_PARAMS_PATH}"  "${PARSER_INPUT}"  "${ROOT_PATH}/Engine" ${sys_include} "Engine3d" 0
+COMMAND ${PRECOMPILE_PARSER} "${PRECOMPILE_PARAMS_PATH}"  "${PARSER_INPUT}"  "${ROOT_PATH}/Engine;${ROOT_PATH}/Core" ${sys_include} "Engine3d" 0
 
 ### BUILDING ====================================================================================
 COMMAND

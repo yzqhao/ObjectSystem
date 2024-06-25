@@ -1,0 +1,35 @@
+#pragma once
+{{#include_headfiles}}
+#include "{{headfile_name}}"
+{{/include_headfiles}}
+
+NS_JYE_BEGIN
+
+using namespace Math;
+
+{{#class_defines}}
+
+template<>
+inline void Serializer::RegisterObjectPointer(const {{class_name}}* instance)
+{
+    {{#class_driver_class_defines}}
+    if (instance->IsSameType({{driver_class_name}}::RTTI())) {
+        return RegisterObjectPointer(({{driver_class_name}}*) instance);
+    }{{/class_driver_class_defines}}
+    assert(false);
+}
+
+template<>
+inline Json Serializer::writeObjectPointer(const {{class_name}}* instance)
+{
+    {{#class_driver_class_defines}}
+    if (instance->IsSameType({{driver_class_name}}::RTTI())) {
+        return writeObjectPointer(({{driver_class_name}}*) instance);
+    }{{/class_driver_class_defines}}
+    assert(false);
+    return Json();
+}
+
+{{/class_defines}}
+
+NS_JYE_END

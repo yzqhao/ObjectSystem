@@ -16,14 +16,47 @@ set(__private
 )
 source_group("private" FILES ${__private})
 
+set(__object
+    "object/GameObject.h"
+    "object/GameObject.cpp"
+    "object/Scene.h"
+    "object/Scene.cpp"
+)
+source_group("object" FILES ${__object})
+
+set(__component
+    "component/Animatable.h"
+    "component/Animatable.cpp"
+    "component/Component.h"
+    "component/Component.cpp"
+    "component/CameraComponent.h"
+    "component/CameraComponent.cpp"
+    "component/LightComponent.h"
+    "component/LightComponent.cpp"
+    "component/RenderComponent.h"
+    "component/RenderComponent.cpp"
+    "component/TransformComponent.h"
+    "component/TransformComponent.cpp"
+    "component/ParticleProperty.h"
+    "component/ParticleEvolver.h"
+    "component/ParticleEvolver.cpp"
+    "component/ParticleComponent.h"
+    "component/ParticleComponent.cpp"
+)
+source_group("component" FILES ${__component})
+
 set(Source
     "reflection_register.h"
     "reflection_register.cpp"
+    "AssetManager.h"
+    "AssetManager.cpp"
 )
 source_group("Source" FILES ${Source})
 
 set(ALL_FILES
     ${__private}
+    ${__object}
+    ${__component}
     ${Source}
 )
 

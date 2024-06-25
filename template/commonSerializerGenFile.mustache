@@ -9,6 +9,19 @@ using namespace Math;
 
 {{#class_defines}}
 template<>
+inline void Serializer::Register(const {{class_name}}& instance){
+    {{#class_field_defines}}{{#class_field_is_vector}}
+    for (auto& item : instance.{{class_field_name}}){
+        Serializer::Register(item);
+    }{{/class_field_is_vector}}{{#class_field_is_map}}
+    for (auto& item : instance.{{class_field_name}}){
+        Serializer::Register(item.first);
+        Serializer::Register(item.second);
+    }{{/class_field_is_map}}
+    {{^class_field_is_vector}}{{^class_field_is_map}}Serializer::Register(instance.{{class_field_name}});{{/class_field_is_map}}{{/class_field_is_vector}}{{/class_field_defines}}
+}
+
+template<>
 inline Json Serializer::write(const {{class_name}}& instance){
     Json::object  ret_context;
     {{#class_base_class_defines}}auto&&  json_context_{{class_base_class_index}} = Serializer::write(*({{class_base_class_name}}*)&instance);

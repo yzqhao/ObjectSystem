@@ -10,6 +10,15 @@ set(PROJECT_NAME Core)
 
 set(Source
     "Core.h"
+    "Type.h"
+    "Rtti.cpp"
+    "Rtti.h"
+    "RttiMacro.h"
+    "RttiManager.cpp"
+    "RttiManager.h"
+    "Main.cpp"
+    "Main.h"
+    "MainMacro.h"
     "Object.cpp"
     "Object.h"
     "StringHash.cpp"

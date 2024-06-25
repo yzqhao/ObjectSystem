@@ -17,20 +17,17 @@ NS_JYE_BEGIN
 #define CLASS_API(apiname, class_name, ...) class __attribute__((annotate(#__VA_ARGS__))) class_name
 #define STRUCT(struct_name, ...) struct __attribute__((annotate(#__VA_ARGS__))) struct_name
 #define STRUCT_API(apiname, struct_name, ...) struct __attribute__((annotate(#__VA_ARGS__))) struct_name
-//#define CLASS(class_name,...) class __attribute__((annotate(#__VA_ARGS__))) class_name:public Reflection::object
 #else
 #define META(...)
 #define CLASS(class_name, ...) class class_name
 #define CLASS_API(apiname, class_name, ...) class apiname class_name
 #define STRUCT(struct_name, ...) struct struct_name
 #define STRUCT_API(apiname, struct_name, ...) struct apiname struct_name
-//#define CLASS(class_name,...) class class_name:public Reflection::object
 #endif // __REFLECTION_PARSER__
 
 #define REFLECTION_BODY(class_name) \
-    friend class JYE::Reflection::TypeFieldReflectionOparator::Type##class_name##Operator; \
-    friend class JYE::Serializer; \
-    public: using REAL_TYPE = ##class_name;
+    friend class Reflection::TypeFieldReflectionOparator::Type##class_name##Operator; \
+    friend class Serializer; \
 
 #define REFLECTION_TYPE(class_name) \
     namespace Reflection \

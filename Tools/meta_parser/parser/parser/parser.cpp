@@ -4,6 +4,7 @@
 
 #include "generator/reflection_generator.h"
 #include "generator/serializer_generator.h"
+#include "generator/special_class_generator.h"
 
 #include "parser.h"
 
@@ -51,10 +52,9 @@ MetaParser::MetaParser(const std::string project_input_file,
 {
     m_work_paths = Utils::split(include_path, ";");
 
-    m_generators.emplace_back(new Generator::SerializerGenerator(
-        m_work_paths[0], std::bind(&MetaParser::getIncludeFile, this, std::placeholders::_1)));
-    m_generators.emplace_back(new Generator::ReflectionGenerator(
-        m_work_paths[0], std::bind(&MetaParser::getIncludeFile, this, std::placeholders::_1)));
+    m_generators.emplace_back(new Generator::SerializerGenerator(m_work_paths[0], std::bind(&MetaParser::getIncludeFile, this, std::placeholders::_1)));
+    m_generators.emplace_back(new Generator::ReflectionGenerator(m_work_paths[0], std::bind(&MetaParser::getIncludeFile, this, std::placeholders::_1)));
+    m_generators.emplace_back(new Generator::SpecialClassGenerator(m_work_paths[0], std::bind(&MetaParser::getIncludeFile, this, std::placeholders::_1)));
 }
 
 MetaParser::~MetaParser(void)
@@ -192,7 +192,7 @@ void MetaParser::generateFiles(void)
     {
         for (auto& generator_iter : m_generators)
         {
-            generator_iter->generate(schema.first, schema.second);
+            generator_iter->generate(schema.first, schema.second, m_schema_modules);
         }
     }
 

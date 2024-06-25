@@ -16,7 +16,7 @@ namespace Generator
     {
         prepareStatus(m_out_path);
     }
-    void ReflectionGenerator::prepareStatus(std::string path)
+    void ReflectionGenerator::prepareStatus(const std::string& path)
     {
         GeneratorInterface::prepareStatus(path);
         TemplateManager::getInstance()->loadTemplates(m_root_path, "commonReflectionFile");
@@ -24,13 +24,13 @@ namespace Generator
         return;
     }
 
-    std::string ReflectionGenerator::processFileName(std::string path)
+    std::string ReflectionGenerator::processFileName(const std::string& path)
     {
         auto relativeDir = fs::path(path).filename().replace_extension("reflection.gen.h").string();
         return m_out_path + "/" + relativeDir;
     }
 
-    int ReflectionGenerator::generate(std::string path, SchemaMoudle schema)
+    int ReflectionGenerator::generate(const std::string& path, const SchemaMoudle& schema, const std::unordered_map<std::string, SchemaMoudle>& moudle)
     {
         static const std::string vector_prefix = "std::vector<";
 

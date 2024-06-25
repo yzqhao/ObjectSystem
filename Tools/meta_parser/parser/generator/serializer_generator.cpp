@@ -11,7 +11,7 @@ namespace Generator
         prepareStatus(m_out_path);
     }
 
-    void SerializerGenerator::prepareStatus(std::string path)
+    void SerializerGenerator::prepareStatus(const std::string& path)
     {
         GeneratorInterface::prepareStatus(path);
         TemplateManager::getInstance()->loadTemplates(m_root_path, "allSerializer.h");
@@ -20,12 +20,12 @@ namespace Generator
         return;
     }
 
-    std::string SerializerGenerator::processFileName(std::string path)
+    std::string SerializerGenerator::processFileName(const std::string& path)
     {
         auto relativeDir = fs::path(path).filename().replace_extension("serializer.gen.h").string();
         return m_out_path + "/" + relativeDir;
     }
-    int SerializerGenerator::generate(std::string path, SchemaMoudle schema)
+    int SerializerGenerator::generate(const std::string& path, const SchemaMoudle& schema, const std::unordered_map<std::string, SchemaMoudle>& moudle)
     {
         std::string file_path = processFileName(path);
 
