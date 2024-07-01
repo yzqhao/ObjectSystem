@@ -42,6 +42,8 @@ set(__component
     "component/ParticleEvolver.cpp"
     "component/ParticleComponent.h"
     "component/ParticleComponent.cpp"
+    "component/ScriptComponent.h"
+    "component/ScriptComponent.cpp"
 )
 source_group("component" FILES ${__component})
 

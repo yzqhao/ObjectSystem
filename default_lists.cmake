@@ -10,7 +10,6 @@ set (
 	
     ./Test/TestModule/ test_testmodule_dir
 
-	./Third/LuaVMLib/ lua_dir
 	./Third/luasocket/ luasocket_dir
 	./Third/lua-cjson/ lua_cjson_dir
 	./Third/LuaBitOp-1.0.2/ lua_bit_dir

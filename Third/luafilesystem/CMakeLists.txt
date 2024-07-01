@@ -89,15 +89,15 @@ endif()
 ################################################################################
 if(NOT MSVC)
     target_include_directories(${PROJECT_NAME} PRIVATE
-        "${ROOT_PATH}/Third/luaVMLib"
+        "${ROOT_PATH}/Third/LuaJIT-2.1/src"
     )
 elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
     target_include_directories(${PROJECT_NAME} PRIVATE
-        "${ROOT_PATH}/Third/luaVMLib"
+        "${ROOT_PATH}/Third/LuaJIT-2.1/src"
     )
 elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
     target_include_directories(${PROJECT_NAME} PRIVATE
-        "${ROOT_PATH}/Third/luaVMLib"
+        "${ROOT_PATH}/Third/LuaJIT-2.1/src"
     )
 endif()
 
@@ -136,12 +136,35 @@ endif()
 ################################################################################
 # Dependencies
 ################################################################################
-add_dependencies(${PROJECT_NAME}
-    lua
-	)
-target_link_libraries(${PROJECT_NAME} PUBLIC
-    lua
-)	
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set(ADDITIONAL_LIBRARY_DEPENDENCIES
+        "$<$<CONFIG:Debug>:"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/buildvm.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/lua51.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/luajit.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/minilua.lib;"
+        ">"
+        "$<$<CONFIG:Editor_Debug>:"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/buildvm.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/lua51.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/luajit.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/minilua.lib;"
+        ">"
+        "$<$<CONFIG:Editor_Release>:"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/buildvm.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/lua51.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/luajit.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/minilua.lib;"
+        ">"
+        "$<$<CONFIG:Release>:"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/buildvm.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/lua51.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/luajit.lib;"
+            "${ROOT_PATH}/Third/LuaJIT-2.1/prebuild/windows/x64/minilua.lib;"
+        ">"
+    )
+endif()
+target_link_libraries(${PROJECT_NAME} PRIVATE "${ADDITIONAL_LIBRARY_DEPENDENCIES}")	
 
 ################################################################################
 # Compile and link options
