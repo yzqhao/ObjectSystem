@@ -71,6 +71,8 @@ bool Main::Terminate()
         SAFE_DELETE(ms_pTerminalArray);
 	}
 
+	JY_ASSERT(Object::GetObjectManager().GetObjectNum() == 0);
+
 	RttiManager::Instance()->Destory();
 
 	return true;

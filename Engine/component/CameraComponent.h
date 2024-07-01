@@ -9,7 +9,7 @@ class ENGINE_API CameraComponent : public Component
     DECLARE_RTTI
 	DECLARE_INITIAL
 public:
-    CameraComponent();
+    CameraComponent(Object* pHost);
     virtual ~CameraComponent();
 
 protected:

@@ -10,7 +10,7 @@ NS_JYE_BEGIN
 REFLECTION_TYPE(ParticleSystemSettings)
 STRUCT_API(ENGINE_API, ParticleSystemSettings : public Object, Fields)
 {
-    REFLECTION_BODY(Component);
+    REFLECTION_BODY(ParticleSystemSettings);
     DECLARE_RTTI
 	DECLARE_INITIAL
 
@@ -46,8 +46,9 @@ STRUCT_API(ENGINE_API, ParticleSystemSettings : public Object, Fields)
 	bool preWarm;
 	float startDelay;
 
-	ParticleSystemSettings()
-		: gpuSimulation(false)
+	ParticleSystemSettings(Object* pHost)
+		: Object(nullptr)
+		, gpuSimulation(false)
 		, simulationSpace(ParticleProperty::ParticleSimulationSpace::World)
 		, orientation(ParticleProperty::ParticleOrientation::ViewPlane)
 		, orientationLockY(false)
@@ -76,7 +77,7 @@ CLASS_API(ENGINE_API, ParticleComponent : public Component, WhiteListFields)
     DECLARE_RTTI
 	DECLARE_INITIAL
 public:
-    ParticleComponent();
+    ParticleComponent(Object* pHost);
     virtual ~ParticleComponent();
 
     void AddEvolver(ParticleProperty::EvolverType et);

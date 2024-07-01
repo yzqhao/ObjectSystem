@@ -6,14 +6,7 @@ IMPLEMENT_RTTI(GameObject, Animatable);
 IMPLEMENT_INITIAL_BEGIN(GameObject)
 IMPLEMENT_INITIAL_END
 
-GameObject::GameObject()
-    : m_pHostScene(nullptr)
-{
-
-}
-
-GameObject::GameObject(Scene* sce)
-    : m_pHostScene(sce)
+GameObject::GameObject(Object* pHost)  : Animatable(pHost), m_RootNode(nullptr)
 {
 
 }

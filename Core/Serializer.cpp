@@ -4,7 +4,8 @@
 NS_JYE_BEGIN
 
 uint32_t Serializer::m_version = 1;
-Serializer::SerInner Serializer::m_inner;
+Serializer::SerInner Serializer::m_innerSer;
+Serializer::DeSerInner Serializer::m_innerDeSer;
 
 template<>
 Json Serializer::write(const char& instance)
@@ -115,14 +116,12 @@ std::string& Serializer::read(const Json& json_context, std::string& instance)
 }
 
 // -----------------------------------------------------------------------------------
-Serializer::Serializer()
+
+void Serializer::SerInner::Clear()
 {
-
-}
-
-Serializer::~Serializer()
-{
-
+	m_objectArray.clear();
+	m_serState.clear();
+	m_serJsons.clear();
 }
 
 bool Serializer::SerInner::RegisterObject(Object* pObject)
@@ -166,6 +165,8 @@ void Serializer::SerInner::BeginSerializer(Object* pObject)
 void Serializer::SerInner::SetObjectSerializer(Object* pObject, Json context)
 {
 	JY_ASSERT(m_serJsons.count(pObject) == 0);
+	Json::object& jsonObj = (Json::object&)context.object_items();
+	jsonObj.insert_or_assign(gRttiStr, (int)pObject->GetTypeID());
 	m_serJsons[pObject] = context;
 }
 
@@ -177,6 +178,37 @@ void Serializer::SerInner::SerializerAllObject(Json::object& outContext)
         m_children_json.emplace_back(m_serJsons[item]);
     }
 	outContext.insert_or_assign("objects", m_children_json);
+}
+
+// -----------------------------------------------------------------------------------
+
+void Serializer::DeSerInner::Clear()
+{
+
+}
+
+void Serializer::DeSerInner::InitObjectContext(Json::array& objArray)
+{
+    m_objectArray.resize(objArray.size());
+    m_objects.resize(objArray.size());
+    for (int i = 0; i < objArray.size(); ++i)
+        m_objects[i] = &objArray[i];
+}
+
+Object* Serializer::DeSerInner::GetRegisterObject(int idx)
+{
+	return m_objectArray[idx];
+}
+
+void Serializer::DeSerInner::RegisterObject(Object* pObject, int idx)
+{
+    JY_ASSERT(pObject);
+	m_objectArray[idx] = pObject;
+}
+
+Json* Serializer::DeSerInner::GetJson(int idx)
+{
+    return m_objects[idx];
 }
 
 NS_JYE_END

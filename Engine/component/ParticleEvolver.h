@@ -13,8 +13,8 @@ CLASS_API(ENGINE_API, ParticleEvolver : public Object, Fields)
 	DECLARE_RTTI
 	DECLARE_INITIAL
 public:
-    ParticleEvolver() {}
-    ParticleEvolver(ParticleProperty::EvolverType t) : type(t) {}
+    ParticleEvolver(Object* pHost) : Object(pHost) {}
+	ParticleEvolver(Object* pHost, ParticleProperty::EvolverType t) : Object(pHost), type(t) {  }
 	virtual ~ParticleEvolver() {}
 protected:
 	ParticleProperty::EvolverType type{};
@@ -33,7 +33,7 @@ public:
 	bool m_UseScale;
 	std::vector<Math::Vec3> m_InitSize;
 public:
-	ParticleSize() : ParticleEvolver(ParticleProperty::EvolverType::Ev_Size) {}
+	ParticleSize(Object* pHost) : ParticleEvolver(pHost, ParticleProperty::EvolverType::Ev_Size) {}
 	~ParticleSize() {}
 };
 TYPE_MARCO(ParticleSize);
@@ -49,7 +49,7 @@ private:
 	bool m_UseMultiply;
 	std::vector<Math::Vec4> m_InitColor;
 public:
-	ParticleColor() : ParticleEvolver(ParticleProperty::EvolverType::Ev_Color) {}
+	ParticleColor(Object * pHost) : ParticleEvolver(pHost, ParticleProperty::EvolverType::Ev_Color){}
 	~ParticleColor() {}
 };
 TYPE_MARCO(ParticleColor);
@@ -65,7 +65,7 @@ private:
 	bool m_Use3DRotation;
 	bool m_UseRate;
 public:
-	ParticleRotation() : ParticleEvolver(ParticleProperty::EvolverType::Ev_Rotation) {}
+	ParticleRotation(Object* pHost) : ParticleEvolver(pHost, ParticleProperty::EvolverType::Ev_Rotation) {}
 	~ParticleRotation() {}
 };
 TYPE_MARCO(ParticleRotation);

@@ -18,15 +18,13 @@ CLASS_API(ENGINE_API, Component : public Animatable, WhiteListFields)
     DECLARE_RTTI
 	DECLARE_INITIAL
 public:
-    Component();
-    Component(GameObject* go);
+    Component(Object* go);
     virtual ~Component();
 
-    GameObject* GetParentObject() { return m_Node; }
-    const GameObject* GetParentObject() const { return m_Node; }
+    GameObject* GetParentObject() { return (GameObject*)_GetOwner(); }
+    const GameObject* GetParentObject() const { return (GameObject*)_GetOwner(); }
 
 protected:
-    META(Enable) GameObject* m_Node;
 };
 TYPE_MARCO(Component);
 

@@ -11,7 +11,7 @@ class ENGINE_API RenderComponent : public Component
     DECLARE_RTTI
 	DECLARE_INITIAL
 public:
-    RenderComponent();
+    RenderComponent(Object* pHost);
     virtual ~RenderComponent();
 
 protected:

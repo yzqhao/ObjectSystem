@@ -6,21 +6,20 @@ IMPLEMENT_RTTI(Scene, Object);
 IMPLEMENT_INITIAL_BEGIN(Scene)
 IMPLEMENT_INITIAL_END
 
-Scene::Scene()
+Scene::Scene(Object* pHost) : Object(pHost), m_rootObject(nullptr)
 {
 
 }
 
-Scene::Scene(const std::string& name)
-    : m_name(name)
-    , m_rootObject(nullptr)
+Scene::Scene(const std::string& name) : Scene(nullptr)
 {
+    m_name = name;
     m_rootObject = CreateObject("root_node");
 }
 
 Scene::~Scene()
 {
-
+    SAFE_DELETE(m_rootObject);
 }
 
 GameObject* Scene::CreateObject(const std::string& objName)

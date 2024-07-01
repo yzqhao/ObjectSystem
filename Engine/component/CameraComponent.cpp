@@ -6,7 +6,7 @@ IMPLEMENT_RTTI(CameraComponent, Component);
 IMPLEMENT_INITIAL_BEGIN(CameraComponent)
 IMPLEMENT_INITIAL_END
 
-CameraComponent::CameraComponent()
+CameraComponent::CameraComponent(Object* pHost) : Component(pHost)
 {
 
 }

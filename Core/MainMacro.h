@@ -25,7 +25,7 @@ public: \
 	} \
 	Object* classname::FactoryFunc(Object* host) \
 	{ \
-		return _NEW classname();\
+		return _NEW classname(host);\
 	} \
 	bool classname::RegisterMainFactory() \
 	{ \

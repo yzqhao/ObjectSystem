@@ -16,7 +16,7 @@ private:
     using SceneObjectsMap = std::unordered_map<uint64, GameObject*>;
     using CameraComponentMap = std::unordered_map<uint64, CameraComponent*>;
 public:
-    Scene();
+    Scene(Object* pHost);
     Scene(const std::string& name);
     virtual ~Scene();
 

@@ -30,6 +30,19 @@ inline Json Serializer::writeObjectPointer(const {{class_name}}* instance)
     return Json();
 }
 
+template<>
+inline void Serializer::readObjectPointer(int objIdx, {{class_name}}*& instance)
+{
+    Json& jo = *m_innerDeSer.GetJson(objIdx);
+    {{#class_driver_class_defines}}
+    if (jo[gRttiStr].int_value() == {{driver_class_name}}::RTTI().GetNameID()) {
+        instance = new {{driver_class_name}}(nullptr);
+        m_innerDeSer.RegisterObject(instance, objIdx);
+        Serializer::read(*m_innerDeSer.GetJson(objIdx), *({{driver_class_name}}*)instance);
+    }{{/class_driver_class_defines}}
+    assert(false);
+}
+
 {{/class_defines}}
 
 NS_JYE_END

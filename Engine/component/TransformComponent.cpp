@@ -6,7 +6,7 @@ IMPLEMENT_RTTI(TransformComponent, Component);
 IMPLEMENT_INITIAL_BEGIN(TransformComponent)
 IMPLEMENT_INITIAL_END
 
-TransformComponent::TransformComponent()
+TransformComponent::TransformComponent(Object* pHost) : Component(pHost)
 {
 
 }

@@ -11,7 +11,7 @@ class ENGINE_API LightComponent : public Component
     DECLARE_RTTI
 	DECLARE_INITIAL
 public:
-    LightComponent();
+    LightComponent(Object* pHost);
     virtual ~LightComponent();
 
 protected:

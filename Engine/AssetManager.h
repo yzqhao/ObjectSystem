@@ -4,6 +4,9 @@
 #include "_generated/serializer/all_serializer.h"
 #include "_generated/specialClass/allSpecialClass.h"
 
+#include <filesystem>
+#include <sstream>
+
 NS_JYE_BEGIN
 
 class AssetManager
@@ -32,7 +35,8 @@ public:
 			return false;
 		}
 
-		//Serializer::read(asset_json, out_asset);
+		Serializer ser;
+		ser.DeSerializerObject(asset_json, out_asset);
 		return true;
 	}
 

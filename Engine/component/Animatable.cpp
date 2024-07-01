@@ -4,11 +4,7 @@ NS_JYE_BEGIN
 
 IMPLEMENT_RTTI_NoCreateFun(Animatable, Object);
 
-Animatable::Animatable()
-    : m_id(0)
-    , m_isActive(true)
-    , m_isStarted(false)
-    , m_isAwaked(false)
+Animatable::Animatable(Object* pHost) : Object(pHost), m_id(0), m_isActive(true), m_isStarted(false), m_isAwaked(false)
 {
 
 }

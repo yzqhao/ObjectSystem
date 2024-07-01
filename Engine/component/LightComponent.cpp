@@ -6,7 +6,7 @@ IMPLEMENT_RTTI(LightComponent, Component);
 IMPLEMENT_INITIAL_BEGIN(LightComponent)
 IMPLEMENT_INITIAL_END
 
-LightComponent::LightComponent()
+LightComponent::LightComponent(Object* pHost) : Component(pHost)
 {
 
 }

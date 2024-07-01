@@ -6,7 +6,8 @@
 
 NS_JYE_BEGIN
 
-static const std::string gRefStr = "RefObject";
+static const std::string gRefStr = "REF_OBJECT";
+static const std::string gRttiStr = "RTTI_NAME";
 
 class CORE_API Serializer
 {
@@ -26,6 +27,19 @@ private:
         std::unordered_set<Object*> m_serState;
         std::vector<Object*> m_objectArray;
     };
+    class CORE_API DeSerInner
+    {
+    public:
+        void Clear();
+        void InitObjectContext(Json::array& objArray);
+        Object* GetRegisterObject(int idx);
+        void RegisterObject(Object* pObject, int idx);
+        Json* GetJson(int idx);
+    public:
+        std::vector<Object*> m_objectArray;
+        std::vector<Json*> m_objects;
+        int m_curState;
+    };
 public:
     template<typename T>
     static void RegisterObjectPointer(const T* instance)
@@ -39,7 +53,7 @@ public:
         if (TIsEObjectPointerType<T*>::Value)
         {
             Object* Temp = (Object*)instance;
-            if (Temp && m_inner.RegisterObject(Temp))
+            if (Temp && m_innerSer.RegisterObject(Temp))
             {
                 RegisterObjectPointer(instance);
             }
@@ -62,14 +76,13 @@ public:
     {
         if (TIsEObjectType<T>::Value)
         {
-            // TODO
             Object* Temp = *(Object**)&instance;
-            if (!m_inner.IsFinishObject(Temp))
+            if (!m_innerSer.IsFinishObject(Temp))
             {
-                m_inner.BeginSerializer(Temp);
-                m_inner.SetObjectSerializer(Temp, writeObjectPointer(instance));
+                m_innerSer.BeginSerializer(Temp);
+                m_innerSer.SetObjectSerializer(Temp, writeObjectPointer(instance));
             }
-            return Json::object{ {"$typeName", Json {"*"}}, {"$gRefStr", Serializer::write(m_inner.GetObjectLinkID(Temp))} };;
+            return Json::object{ {"$typeName", Json {"*"}}, {gRefStr, Serializer::write(m_innerSer.GetObjectLinkID(Temp))} };;
         }
         else if (std::is_pod<T>::value)
         {
@@ -82,6 +95,14 @@ public:
     }
 
     template<typename T>
+    static void readObjectPointer(int objIdx, T*& instance)
+    {
+        instance = new T(nullptr);
+        m_innerDeSer.RegisterObject(instance, objIdx);
+        read(*m_innerDeSer.GetJson(objIdx), *instance);
+    }
+
+    template<typename T>
     static T*& readPointer(const Json& json_context, T*& instance)
     {
         assert(instance == nullptr);
@@ -89,8 +110,12 @@ public:
         assert(!type_name.empty());
         if ('*' == type_name[0])
         {
-            instance = nullptr;//new T;
-            read(json_context["$context"], *instance);
+            int objIdx = json_context[gRefStr].int_value();
+            instance = (T*)m_innerDeSer.GetRegisterObject(objIdx);
+            if (instance == nullptr)
+            {
+                readObjectPointer(objIdx, instance);
+            }
         }
         else
         {
@@ -125,6 +150,10 @@ public:
         {
             return readPointer(json_context, instance);
         }
+        else if (std::is_enum<T>::value)
+        {
+            return (T&)read(json_context, (int&)instance);
+        }
         else
         {
             return instance;
@@ -132,29 +161,55 @@ public:
     }
 
 public:
-    Serializer();
-    ~Serializer();
+    Serializer() {}
+    ~Serializer() {}
 
     template<typename T>
     Json SerializerObject(const T& instance)
     {
+        m_innerSer.Clear();
+
         Object* tempObj = (Object*)&instance;
 
-        m_inner.RegisterObject(tempObj);  //注册自己
+        m_innerSer.RegisterObject(tempObj);  //注册自己
         Register(instance);
 
-        m_inner.BeginSerializer(tempObj);
-        m_inner.SetObjectSerializer(tempObj, write(instance));
+        m_innerSer.BeginSerializer(tempObj);
+        m_innerSer.SetObjectSerializer(tempObj, write(instance));
 
         Json::object  retContext;
         retContext.insert_or_assign("version", Serializer::write(m_version));
-        m_inner.SerializerAllObject(retContext);
+        m_innerSer.SerializerAllObject(retContext);
         return Json(retContext);
+    }
+
+    template<typename T>
+    T& DeSerializerObject(const Json& jsonContext, T& instance)
+    {
+        m_innerSer.Clear();
+
+        if (!jsonContext["version"].is_null()) {
+            //Serializer::read(jsonContext["version"], version);
+        }
+
+        Json objectJson = jsonContext["objects"];
+        JY_ASSERT(!objectJson.is_null());
+        if (!objectJson.is_null()) {
+            assert(objectJson.is_array());
+
+            Json::array arrayObject = objectJson.array_items();
+            m_innerDeSer.InitObjectContext(arrayObject);
+            m_innerDeSer.RegisterObject(&instance, 0);
+            Serializer::read(*m_innerDeSer.GetJson(0), instance);
+        }
+
+        return instance;
     }
 
 private:
     static uint32_t m_version;
-    static SerInner m_inner;
+    static SerInner m_innerSer;
+    static DeSerInner m_innerDeSer;
 };
 
 // implementation of base types

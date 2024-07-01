@@ -15,8 +15,7 @@ CLASS_API(ENGINE_API, GameObject : public Animatable, WhiteListFields)
     DECLARE_RTTI
 	DECLARE_INITIAL
 public:
-    GameObject();
-    GameObject(Scene* sce);
+    GameObject(Object* pHost);
     virtual ~GameObject();
 
     FORCEINLINE void SetName(const std::string & name) { m_name = name; }
@@ -39,7 +38,6 @@ protected:
         m_RootNode = root;
     }
 
-    META(Enable) Scene* m_pHostScene;
     META(Enable) std::string m_name;
     META(Enable) uint64 m_MaskLayer;
     META(Enable) GameObject* m_RootNode;	//¸¸½Úµã

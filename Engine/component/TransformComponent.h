@@ -13,7 +13,7 @@ STRUCT_API(ENGINE_API, TransformComponent : Component, WhiteListFields)
     DECLARE_RTTI
 	DECLARE_INITIAL
 public:
-    TransformComponent();
+    TransformComponent(Object * pHost);
     virtual ~TransformComponent();
 
 protected:

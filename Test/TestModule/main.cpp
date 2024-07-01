@@ -24,6 +24,14 @@ int main()
 
     AssetManager::SaveAsset(*s, "testSave.json");
 
+    Scene* loadSce = new Scene(nullptr);
+    AssetManager::LoadAsset("testSave.json", *loadSce);
+
+    Object::GetObjectManager().Dump();
+
+    SAFE_DELETE(s);
+    SAFE_DELETE(loadSce);
+
     Reflection::TypeMetaRegister::metaUnregister();
 
     Main::Terminate();

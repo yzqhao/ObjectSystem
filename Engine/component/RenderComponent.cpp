@@ -6,7 +6,7 @@ IMPLEMENT_RTTI(RenderComponent, Component);
 IMPLEMENT_INITIAL_BEGIN(RenderComponent)
 IMPLEMENT_INITIAL_END
 
-RenderComponent::RenderComponent()
+RenderComponent::RenderComponent(Object* pHost) : Component(pHost)
 {
 
 }

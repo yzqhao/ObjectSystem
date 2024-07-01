@@ -12,7 +12,7 @@ CLASS_API(ENGINE_API, Animatable : public Object, Fields)
     DECLARE_RTTI
     DECLARE_INITIAL
 public:
-    Animatable();
+    Animatable(Object* pHost);
     virtual ~Animatable();
 
     FORCEINLINE uint64 GetStaticID() const { return m_id; }
